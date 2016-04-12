@@ -1,0 +1,68 @@
+<?php $this->extend('block_searchable'); ?>
+
+<?php $this->block('content'); ?>
+
+<?= $this->company ?><br>
+<?php if ($this->logoSingleSRC): ?>
+<figure class="image_container"<?php if ($this->margin): ?> style="<?= $this->margin ?>"<?php endif; ?>>
+
+  <?php if ($this->href): ?>
+    <a href="<?= $this->href ?>"<?php if ($this->linkTitle): ?> title="<?= $this->linkTitle ?>"<?php endif; ?><?= $this->attributes ?>>
+  <?php endif; ?>
+
+  <?php if ($this->picture): ?>
+    {{picture::<?= $this->logoSingleSRC->path ?>?size=<?= $this->size[2] ?>}}
+  <?php else: ?>
+    {{image::<?= $this->logoSingleSRC->path ?>?width=<?= $this->size[0] ?>&height=<?= $this->size[1] ?>&mode=<?= $this->size[2] ?>}}
+  <?php endif; ?>
+
+  <?php if ($this->href): ?>
+    </a>
+  <?php endif; ?>
+
+  <?php if ($this->caption): ?>
+    <figcaption class="caption"><?= $this->caption ?></figcaption>
+  <?php endif; ?>
+
+</figure>
+<?php endif; ?>
+
+<?php if ($this->logoNegativeSingleSRC): ?>
+<figure class="image_container"<?php if ($this->margin): ?> style="<?= $this->margin ?>"<?php endif; ?>>
+
+  <?php if ($this->href): ?>
+    <a href="<?= $this->href ?>"<?php if ($this->linkTitle): ?> title="<?= $this->linkTitle ?>"<?php endif; ?><?= $this->attributes ?>>
+  <?php endif; ?>
+
+  <?php if ($this->picture): ?>
+    {{picture::<?= $this->logoNegativeSingleSRC->path ?>?size=<?= $this->size[2] ?>}}
+  <?php else: ?>
+    {{image::<?= $this->logoNegativeSingleSRC->path ?>?width=<?= $this->size[0] ?>&height=<?= $this->size[1] ?>&mode=<?= $this->size[2] ?>}}
+  <?php endif; ?>
+
+  <?php if ($this->href): ?>
+    </a>
+  <?php endif; ?>
+
+  <?php if ($this->caption): ?>
+    <figcaption class="caption"><?= $this->caption ?></figcaption>
+  <?php endif; ?>
+
+</figure>
+<?php endif; ?>
+
+Colors
+<ul>
+<?php foreach ($this->colors as $color): ?>
+  <li><?= $color ?></li>
+<?php endforeach; ?>
+</ul><br><br>
+
+Types
+<ul>
+<?php foreach ($this->types as $type): ?>
+  <li><?= $type ?></li>
+<?php endforeach; ?>
+</ul>
+
+<?php $this->endblock(); ?>
